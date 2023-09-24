@@ -19,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::get('/panel',[SMSController::class,'showPanel']);
+Route::post('/send-single-sms',[SMSController::class,'sendSingleSms']);
