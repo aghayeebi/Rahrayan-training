@@ -12,15 +12,24 @@
                         <div class="mb-4">
                             <label class="block text-gray-700 text-sm font-normal mb-2" for="name">Receiver number</label>
                             <input
+
                                 name="receiver_number" id="name" type="text" placeholder="for example 09121234567"
-                                class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                class="required appearance-none border rounded w-full py-2 px-3
+                                 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                            @error('receiver_number')
+                            <p class="text-red-500 text-xs italic mt-0.5">{{ $message }}</p>
+                            @enderror
                         </div>
                         <!-- Message -->
                         <div class="mb-6">
                             <label class="block text-gray-700 text-sm font-normal mb-2" for="message">Message</label>
                             <textarea
                                 name="message" id="message" placeholder="Your Text"
-                                class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ></textarea>
+                                class="required appearance-none border rounded w-full py-2 px-3
+                                 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ></textarea>
+                            @error('message')
+                            <p class="text-red-500 text-xs italic mt-0.5">{{ $message }}</p>
+                            @enderror
                         </div>
                         <!-- submit -->
                         <div class="flex items-center justify-between">

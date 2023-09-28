@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SMSController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,5 +19,17 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-Route::get('/panel',[SMSController::class,'showPanel']);
-Route::post('/send-single-sms',[SMSController::class,'sendSingleSms']);
+Route::get('/panel', [SMSController::class, 'showPanel'])->middleware('auth')->name('panel');
+Route::post('/send-single-sms', [SMSController::class, 'sendSingleSms']);
+
+//Route::get('/dashboard', function () {
+//    return view('dashboard');
+//})->middleware(['auth', 'verified'])->name('dashboard');
+
+//Route::middleware('auth')->group(function () {
+//    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+//});
+
+require __DIR__ . '/auth.php';
