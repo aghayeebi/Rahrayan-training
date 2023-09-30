@@ -29,14 +29,12 @@ class SMSController extends Controller
            'password' => self::PASSWORD,
            'sender_number' => self::SENDER_NUMBER,
            'receiver_number' => $request->input('receiver_number'),
-           'note' => $request->input('message') .'  لغو ۱۱  '
+           'note' => $request->input('message')
        ];
-
-       dd($params);
-
 
         $send_single  = new ApiService();
         $response = $send_single->action($method,$params);
+
         dd($response);
     }
 }
